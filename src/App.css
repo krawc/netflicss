@@ -1,22 +1,227 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Header {
+  padding: 0 4%;
+  height: 68px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  background: #141414;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+}
+
+.Header .logo-image {
+  width: 150px;
+  height: 45px;
+}
+
+.Header .menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.Header .menu li {
+  padding: 0 1em;
+}
+
+.Front {
+  height: 75vh;
+  background-size: cover;
+  padding: 68px 4% 0;
+  align-content: center;
+  display: flex;
+  background-size: cover;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+.Front .title {
+  font-size: 72px;
+  color: #fff;
+  margin: 10px 0;
+  flex: 0 0 100%;
+}
+
+.Front .description {
+  color: #fff;
+  text-align: left;
+  line-height: 1.5;
+  flex: 0 0 50%;
+}
+
+.Front .action-buttons {
+  flex: 0 0 100%;
+  display: flex;
+}
+
+.Front .action-buttons button {
+  display: flex;
+  background-color: rgba(51, 51, 51, 0.4);
+  border-width: 0;
+  padding: 0.75em 2.3em;
+  margin-right: 1em;
+  border-radius: 0.2vw;
+  font-size: 1.1vw;
+  color: #fff;
+  font-weight: 600;
+}
+
+.Slider {
+  background: #141414;
+  padding: 0 4%;
+  color: #fff;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.Slider .title {
+  padding: 1em 0 0.5em;
+  margin: 0;
+  flex: 0 0 100%;
+}
+
+.Slider .slides-container {
+  display: flex;
+  flex: 0 0 100%;
+  margin: 0 -2px 50px;
+}
+
+.Slider .slide {
+  flex: 0 0 calc(16.6667% - 4px);
+  margin: 0 2px;
+  box-sizing: border-box;
+  height: 8vw;
+  position: relative;
+  padding: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.Slider .slide .overlay {
+  background: rgba(0,0,0,0.8);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  opacity: 0;
+  z-index: 0;
+}
+
+
+.Slider .slide:hover .overlay {
+  opacity: 1;
+}
+
+
+.Slider .slide svg {
+  border: 1px solid #fff;
+  border-radius: 50%;
+}
+
+.Slider .slide svg,
+.Slider .slide h4 {
+  opacity: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.Slider .slide h4 {
+  flex: 0 0 100%;
+  margin: 0.5em 0;
+}
+
+.Slider .slide:hover svg,
+.Slider .slide:hover h4 {
+  opacity: 1;
+}
+
+.Slider .forward,
+.Slider .back {
+  position: absolute;
+  bottom: 50px;
+  width: 4%;
+  background: rgba(0,0,0,0.5);
+  height: 8vw;
+  z-index: 2;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+.Slider .forward{
+  right: 0;
+}
+
+.Slider .back {
+  left: 0;
+}
+
+
+.Preloader {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  z-index: 100;
+  position: fixed;
+  background: #141414;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+
+.Preloader {
+  transition: opacity 0.3s ease-in;
+}
+
+.action-buttons button:hover {
+  cursor: pointer;
+  background: white;
+  color: black;
+  transition: all 0.15s ease-in;
+}
+
+.Slider .slides-container {
+  transition: transform 0.5s ease-in-out;
+}
+
+#left-leg {
+  animation: slideUp 0.8s forwards;
+  y: 100%;
+}
+
+#right-leg {
+  animation: slideUp 0.8s forwards 1.6s;
+  y: 100%;
+}
+
+@keyframes slideUp {
+  from {
+    y: 100%;
+  } 
+  to {
+    y: 0%;
+  }
+}
+
+#diagonal {
+  animation: slideDown 0.8s forwards 0.8s;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+}
+
+@keyframes slideDown {
+  from {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+  }
+  to {
+    clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
+  }
 }
